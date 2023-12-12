@@ -5,8 +5,10 @@ import numpy as np
 from tqdm import tqdm
 from functools import partial
 
-from ldm.modules.diffusionmodules.util import make_ddim_sampling_parameters, make_ddim_timesteps, noise_like
-
+import sys
+sys.path.append('/content/stable-diffusion/ldm')
+# from ldm.modules.diffusionmodules.util import make_ddim_sampling_parameters, make_ddim_timesteps, noise_like
+from modules.diffusionmodules.util import make_ddim_sampling_parameters, make_ddim_timesteps, noise_like
 
 class PLMSSampler(object):
     def __init__(self, model, schedule="linear", **kwargs):
