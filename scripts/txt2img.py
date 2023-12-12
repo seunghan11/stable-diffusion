@@ -14,10 +14,19 @@ from pytorch_lightning import seed_everything
 from torch import autocast
 from contextlib import contextmanager, nullcontext
 
-from ldm.util import instantiate_from_config
-from ldm.models.diffusion.ddim import DDIMSampler
-from ldm.models.diffusion.plms import PLMSSampler
-from ldm.models.diffusion.dpm_solver import DPMSolverSampler
+# from ldm.util import instantiate_from_config
+# from ldm.models.diffusion.ddim import DDIMSampler
+# from ldm.models.diffusion.plms import PLMSSampler
+# from ldm.models.diffusion.dpm_solver import DPMSolverSampler
+import sys
+sys.path.append('/content/stable-diffusion/ldm')
+sys.path.append('/content/stable-diffusion/')
+
+from util import instantiate_from_config
+from models.diffusion.ddim import DDIMSampler
+from models.diffusion.plms import PLMSSampler
+# from models.diffusion.dpm_solver.dpm_solver import DPMSolverSampler
+from models.diffusion.dpm_solver.dpm_solver import DPM_Solver
 
 from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
 from transformers import AutoFeatureExtractor
